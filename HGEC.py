@@ -2,16 +2,14 @@
 # but you can adoptive it for any good.
 
 # Changeable values
-level = 2 # level of your buildngs
+levels = 28 # Total levels of all your buildings that used for production Hgec
 hours = 24
 sell_price = 900
 
 # Constant values
-buildings = 14
-unit_per_hour = level * 2 # how many one building  first lvl can produce
-workers = 100 * level * buildings
-unit_worker_cost = 190
-admin_overhead = round((workers / 100) * 0.56714, 2) # Found out with practice way
+unit_per_hour = 2 # how many one level of building can produce per hour
+workers = 100 * levels
+admin_overhead = round((workers / 100) * 0.56714, 2) # (0.56714) This found out with experimental way
 
 # Resources prices (averege)
 price_gold = 6200 / 16
@@ -23,11 +21,8 @@ cost_resources = price_gold + price_chemicals + price_silic
 labor_cost = 190 + (190 / 100 * admin_overhead)
 unit_cost = (cost_resources + labor_cost)
 
-# Quantity
-quantity = unit_per_hour * hours * buildings
-
-# Total expenses
-sum_expenses = round(quantity * unit_cost)
+quantity = unit_per_hour * hours * levels # Quantity of Hgec
+sum_expenses = round(quantity * unit_cost) # Total expenses
 
 # Income
 sum_revenue = round(quantity * sell_price)
